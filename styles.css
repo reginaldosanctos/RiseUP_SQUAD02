@@ -350,3 +350,39 @@ h1 {
 .terceiro {
     background-color: #cd7f32; /* Para o terceiro lugar */
 }
+
+.search-bar {
+    display: flex;
+    justify-content: flex-end; /* Alinha a barra de busca à direita */
+    margin: 20px; /* Espaçamento ao redor da barra de busca */
+}
+
+.search-bar form {
+    display: flex; /* Para alinhar o input e o botão */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.search-bar input {
+    padding: 10px 40px 10px 15px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 25px; /* Cantos arredondados */
+    width: 250px; /* Largura da barra de busca */
+    transition: border-color 0.3s; /* Transição suave na mudança de cor da borda */
+}
+
+.search-bar input:focus {
+    border-color: #007bff; /* Cor da borda ao focar */
+    outline: none; /* Remove a borda padrão de foco */
+}
+
+.search-button {
+    background: transparent; /* Fundo transparente */
+    border: none; /* Remove a borda do botão */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    margin-left: -40px; /* Sobrepõe o botão ao input, ajuste se necessário */
+}
+
+.search-button i {
+    color: #007bff; /* Cor do ícone */
+    font-size: 16px; /* Tamanho do ícone */
+}
