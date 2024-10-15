@@ -46,3 +46,23 @@ menuIcon.addEventListener('click', function () {
         userName.style.opacity = '1'; // Mostra o nome do usuário
     }
 });
+
+// Lógica para exibir/ocultar detalhes do ranking
+const modulo1Link = document.getElementById('modulo1Link');
+const rankingDetails = document.getElementById('rankingDetails');
+
+modulo1Link.addEventListener('click', function (e) {
+    e.preventDefault(); // Impede o comportamento padrão do link
+    if (rankingDetails.style.display === 'none') {
+        rankingDetails.style.display = 'block'; // Exibe os detalhes do ranking
+    } else {
+        rankingDetails.style.display = 'none'; // Oculta os detalhes do ranking
+    }
+});
+
+function logout() {
+    // Adicione aqui a lógica de logout, se necessário (por exemplo, limpar sessionStorage)
+    console.log("Usuário deslogado"); // Log de saída para depuração
+    // Redirecionar para a página de login
+    window.location.href = "index.html";
+}
