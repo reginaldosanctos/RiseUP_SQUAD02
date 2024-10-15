@@ -233,7 +233,55 @@ h1 {
     gap: 20px;
 }
 
-.card {
+.modulo1 {
+    background-color: #ff9d00;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modulo1 a {
+    display: flex; /* Alinha o ícone e o texto horizontalmente */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    background-color: #ff9d00; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras */
+}
+
+.modulo1 a:hover {
+    background-color: #e68a00; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "elevação" */
+}
+
+.icon {
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+}
+
+.modulo2 {
+    background-color: #ff9d00;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modulo3 {
+    background-color: #ff9d00;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modulo4 {
     background-color: #ff9d00;
     padding: 20px;
     border-radius: 8px;
@@ -263,4 +311,42 @@ h1 {
     .menu-lateral:hover ~ .conteudo-principal {
         margin-left: 200px;
     }
+}
+
+/* Estilo dos detalhes do ranking */
+.ranking-details {
+    margin-top: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.podio {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.premio {
+    background-color: #ff9d00;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 0 10px;
+}
+
+.primeiro {
+    background-color: gold; /* Para o primeiro lugar */
+}
+
+.segundo {
+    background-color: silver; /* Para o segundo lugar */
+}
+
+.terceiro {
+    background-color: #cd7f32; /* Para o terceiro lugar */
 }
