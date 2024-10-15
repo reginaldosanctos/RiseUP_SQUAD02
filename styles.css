@@ -38,6 +38,7 @@ body {
     margin-bottom: 20px;
     border-radius: 50%;
     object-fit: cover;
+    transition: width 0.3s ease, height 0.3s ease; /* Para animação suave */
 }
 
 .input-group {
@@ -126,6 +127,17 @@ body {
     z-index: 2;
 }
 
+.menu-lateral:hover .logo {
+    width: 150px; /* Logo no estado expandido */
+    height: 150px;
+}
+
+.menu-lateral:not(:hover) .logo {
+    width: 50px; /* Logo no estado recolhido */
+    height: 50px; /* Ajuste a altura para manter a proporção */
+    margin-bottom: 10px; /* Adicione espaço inferior para a logo */
+}
+
 .menu-lateral:hover {
     width: 250px;
 }
@@ -136,14 +148,23 @@ body {
     text-align: center;
 }
 
+.user-name {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 0; /* Adicione algum espaço ao redor */
+    transition: opacity 0.3s ease; /* Para animação suave */
+}
+
 .menu-items, .menu-logout {
     list-style: none;
     padding: 20px;
     width: 100%;
 }
 
-.menu-items li {
-    margin-bottom: 20px;
+.menu-items li,
+.menu-logout li {
+    margin-bottom: 20px; /* Espaçamento inferior para todos os itens de menu */
 }
 
 .menu-items a,
@@ -181,6 +202,11 @@ body {
 /* Estilo do logout no final do menu */
 .menu-logout {
     margin-top: auto; /* Coloca o item "Logout" no final do menu */
+    padding-top: 20px; /* Espaçamento superior para a seção de logout */
+}
+
+.menu-logout li {
+    margin-bottom: 20px; /* Espaçamento inferior para os itens de logout */
 }
 
 /* Conteúdo principal */
