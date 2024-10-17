@@ -1,0 +1,280 @@
+HTML:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Empresa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="" alt="Logo Empresa" class="logo">
+            <h2>Cadastrar Empresa</h2>
+
+            <form id="form-empresa">
+                <div class="input-container">
+                    <label for="nome">Nome da Empresa</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" id="cnpj" name="cnpj" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="telefone" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+
+                <button type="submit" class="btn">Cadastrar Empresa</button>
+
+                <div id="mensagem-erro" class="error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script> <!-- Certifique-se de que o nome está correto -->
+</body>
+</html>
+
+
+CSS:
+
+/* Configurações gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    backdrop-filter: blur(5px);
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Consistência com o estilo anterior */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+}
+
+/* Estilo da caixa de formulário */
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 100%;
+    color: #333;
+}
+
+/* Logo */
+.logo {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Cabeçalho do formulário */
+h2 {
+    margin-bottom: 30px;
+    color: #FF7300;
+    font-size: 24px;
+}
+
+/* Container de entrada */
+.input-container {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+/* Estilo dos labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #FF7300;
+}
+
+/* Estilo dos inputs */
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #FF7300;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilo do botão */
+.btn {
+    background-color: #FF7300;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FF5B00;
+}
+
+/* Mensagens de erro e sucesso */
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: green;
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+        max-width: 100%;
+    }
+    .logo {
+        max-width: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 15px;
+    }
+    .logo {
+        max-width: 60px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+}
+
+/* Estilo personalizado para o botão de confirmação do SweetAlert2 */
+.btn {
+    background-color: #FF7300;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FF5B00;
+}
+
+
+JAVASCRIPT:
+
+// Máscaras de entrada usando jQuery Mask
+$(document).ready(function() {
+    $('#cnpj').mask('00.000.000/0000-00', { reverse: true });
+    $('#telefone').mask('(00) 00000-0000');
+});
+
+document.getElementById("form-empresa").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevenir o comportamento padrão de envio do formulário
+    
+    const cnpj = document.getElementById('cnpj').value;
+    const telefone = document.getElementById('telefone').value;
+    const email = document.getElementById('email').value;
+    const erro = document.getElementById('mensagem-erro');
+
+    // Validar CNPJ
+    if (!validarCNPJ(cnpj)) {
+        erro.textContent = 'CNPJ inválido.';
+        return;
+    }
+
+    // Validar telefone
+    if (telefone.length < 14) {
+        erro.textContent = 'Telefone inválido.';
+        return;
+    }
+
+    // Validar e-mail
+    if (!validarEmail(email)) {
+        erro.textContent = 'E-mail inválido.';
+        return;
+    }
+
+    // Se tudo estiver correto, mostrar mensagem de sucesso
+    erro.textContent = ''; // Limpar a mensagem de erro anterior
+    Swal.fire({
+        title: 'Cadastro realizado com sucesso!',
+        text: 'Sua empresa foi cadastrada.',
+        icon: 'success',
+        confirmButtonText: 'Ok',
+        customClass: {
+            confirmButton: 'btn', // pode aplicar estilos próprios aqui
+        },
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        },
+        timer: 5000,
+        timerProgressBar: true
+    });
+});
+
+// Função para validar o CNPJ
+function validarCNPJ(cnpj) {
+    cnpj = cnpj.replace(/[^\d]+/g, '');
+    if (cnpj == '') return false;
+    if (cnpj.length != 14) return false;
+    // Validação mais complexa do CNPJ pode ser implementada aqui (opcional)
+    return true;
+}
+
+// Função para validar o e-mail
+function validarEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
