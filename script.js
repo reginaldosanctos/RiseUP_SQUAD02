@@ -1,68 +1,66 @@
-function togglePasswordVisibility() {
-    const passwordInput = document.getElementById('password');
-    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordInput.setAttribute('type', type);
+// Máscaras de entrada usando jQuery Mask
+$(document).ready(function() {
+    $('#cpf').mask('000.000.000-00', { reverse: true });
+    $('#telefone').mask('(00) 00000-0000');
+});
+
+document.getElementById("form-cliente").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevenir o comportamento padrão de envio do formulário
+    
+    const cpf = document.getElementById('cpf').value;
+    const telefone = document.getElementById('telefone').value;
+    const email = document.getElementById('email').value;
+    const erro = document.getElementById('mensagem-erro');
+
+    // Validar CPF
+    if (!validarCPF(cpf)) {
+        erro.textContent = 'CPF inválido.';
+        return;
+    }
+
+    // Validar telefone
+    if (telefone.length < 14) {
+        erro.textContent = 'Telefone inválido.';
+        return;
+    }
+
+    // Validar e-mail
+    if (!validarEmail(email)) {
+        erro.textContent = 'E-mail inválido.';
+        return;
+    }
+
+    // Se tudo estiver correto, mostrar mensagem de sucesso
+    erro.textContent = ''; // Limpar a mensagem de erro anterior
+    Swal.fire({
+        title: 'Cadastro realizado com sucesso!',
+        text: 'O cliente foi cadastrado.',
+        icon: 'success',
+        confirmButtonText: 'Ok',
+        customClass: {
+            confirmButton: 'btn',
+        },
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        },
+        timer: 5000,
+        timerProgressBar: true
+    });
+});
+
+// Função para validar o CPF
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, '');
+    if (cpf.length != 11) return false;
+    // Adicionar uma validação completa de CPF aqui (opcional)
+    return true;
 }
 
-// Lógica do formulário de login
-document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    // Aqui você pode adicionar a lógica para login
-    alert('Login realizado com sucesso!');
-
-    // Redireciona para a tela principal após o alerta
-    window.location.href = 'principal.html';
-});
-
-// Adiciona eventos para o comportamento do menu lateral
-const menuLateral = document.querySelector('.menu-lateral');
-const conteudoPrincipal = document.querySelector('.conteudo-principal');
-const userName = document.querySelector('.user-name'); // Seleciona o nome do usuário
-
-// Redimensiona o menu lateral e o conteúdo ao passar o mouse
-menuLateral.addEventListener('mouseenter', function () {
-    this.style.width = '250px';
-    conteudoPrincipal.style.marginLeft = '250px'; // Ajusta a margem do conteúdo
-    userName.style.opacity = '1'; // Mostra o nome do usuário
-});
-
-menuLateral.addEventListener('mouseleave', function () {
-    this.style.width = '80px';
-    conteudoPrincipal.style.marginLeft = '80px'; // Restaura a margem do conteúdo
-    userName.style.opacity = '0'; // Esconde o nome do usuário
-});
-
-// Redimensiona o menu ao clicar no ícone do menu
-const menuIcon = document.querySelector('.menu-icon');
-
-menuIcon.addEventListener('click', function () {
-    if (menuLateral.style.width === '250px') {
-        menuLateral.style.width = '80px';
-        conteudoPrincipal.style.marginLeft = '80px'; // Restaura a margem do conteúdo
-        userName.style.opacity = '0'; // Esconde o nome do usuário
-    } else {
-        menuLateral.style.width = '250px';
-        conteudoPrincipal.style.marginLeft = '250px'; // Ajusta a margem do conteúdo
-        userName.style.opacity = '1'; // Mostra o nome do usuário
-    }
-});
-
-// Lógica para exibir/ocultar detalhes do ranking
-const modulo1Link = document.getElementById('modulo1Link');
-const rankingDetails = document.getElementById('rankingDetails');
-
-modulo1Link.addEventListener('click', function (e) {
-    e.preventDefault(); // Impede o comportamento padrão do link
-    if (rankingDetails.style.display === 'none') {
-        rankingDetails.style.display = 'block'; // Exibe os detalhes do ranking
-    } else {
-        rankingDetails.style.display = 'none'; // Oculta os detalhes do ranking
-    }
-});
-
-function logout() {
-    // Adicione aqui a lógica de logout, se necessário (por exemplo, limpar sessionStorage)
-    console.log("Usuário deslogado"); // Log de saída para depuração
-    // Redirecionar para a página de login
-    window.location.href = "index.html";
+// Função para validar o e-mail
+function validarEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
 }
