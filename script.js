@@ -1,7 +1,5 @@
 document.getElementById("editarPerfil").addEventListener("click", function() {
     alert("Funcionalidade de edição de perfil ainda será implementada!");
-    // Exemplo de código para futuras edições, excluindo o CPF
-    // Apenas telefone, e-mail e endereço seriam editáveis aqui.
 });
 
 const editarBtn = document.getElementById("editarPerfil");
@@ -11,17 +9,17 @@ editarBtn.addEventListener("click", function() {
     if (editarBtn.innerText === "Editar Informações") {
         // Tornar os campos editáveis
         transformarEmInput("nome");
+        transformarEmInput("endereco");
         transformarEmInput("telefone");
         transformarEmInput("email");
-        transformarEmInput("endereco");
 
         editarBtn.innerHTML = '<i class="fas fa-save"></i> Salvar Informações';
     } else {
         // Salvar as informações e reverter os campos para texto
         salvarValor("nome");
+        salvarValor("endereco");
         salvarValor("telefone");
         salvarValor("email");
-        salvarValor("endereco");
 
         editarBtn.innerHTML = '<i class="fas fa-edit"></i> Editar Informações';
 
