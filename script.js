@@ -1,66 +1,47 @@
-// Máscaras de entrada usando jQuery Mask
-$(document).ready(function() {
-    $('#cpf').mask('000.000.000-00', { reverse: true });
-    $('#telefone').mask('(00) 00000-0000');
+document.getElementById("editarPerfil").addEventListener("click", function() {
+    alert("Funcionalidade de edição de perfil ainda será implementada!");
+    // Exemplo de código para futuras edições, excluindo o CPF
+    // Apenas telefone, e-mail e endereço seriam editáveis aqui.
 });
 
-document.getElementById("form-cliente").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevenir o comportamento padrão de envio do formulário
-    
-    const cpf = document.getElementById('cpf').value;
-    const telefone = document.getElementById('telefone').value;
-    const email = document.getElementById('email').value;
-    const erro = document.getElementById('mensagem-erro');
+const editarBtn = document.getElementById("editarPerfil");
+const mensagem = document.getElementById("mensagem");
 
-    // Validar CPF
-    if (!validarCPF(cpf)) {
-        erro.textContent = 'CPF inválido.';
-        return;
+editarBtn.addEventListener("click", function() {
+    if (editarBtn.innerText === "Editar Informações") {
+        // Tornar os campos editáveis
+        transformarEmInput("nome");
+        transformarEmInput("telefone");
+        transformarEmInput("email");
+        transformarEmInput("endereco");
+
+        editarBtn.innerHTML = '<i class="fas fa-save"></i> Salvar Informações';
+    } else {
+        // Salvar as informações e reverter os campos para texto
+        salvarValor("nome");
+        salvarValor("telefone");
+        salvarValor("email");
+        salvarValor("endereco");
+
+        editarBtn.innerHTML = '<i class="fas fa-edit"></i> Editar Informações';
+
+        // Exibir mensagem de sucesso
+        mensagem.style.display = "block";
+        setTimeout(() => {
+            mensagem.style.display = "none";
+        }, 3000);
     }
-
-    // Validar telefone
-    if (telefone.length < 14) {
-        erro.textContent = 'Telefone inválido.';
-        return;
-    }
-
-    // Validar e-mail
-    if (!validarEmail(email)) {
-        erro.textContent = 'E-mail inválido.';
-        return;
-    }
-
-    // Se tudo estiver correto, mostrar mensagem de sucesso
-    erro.textContent = ''; // Limpar a mensagem de erro anterior
-    Swal.fire({
-        title: 'Cadastro realizado com sucesso!',
-        text: 'O cliente foi cadastrado.',
-        icon: 'success',
-        confirmButtonText: 'Ok',
-        customClass: {
-            confirmButton: 'btn',
-        },
-        showClass: {
-            popup: 'animate__animated animate__fadeInDown'
-        },
-        hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
-        },
-        timer: 5000,
-        timerProgressBar: true
-    });
 });
 
-// Função para validar o CPF
-function validarCPF(cpf) {
-    cpf = cpf.replace(/[^\d]+/g, '');
-    if (cpf.length != 11) return false;
-    // Adicionar uma validação completa de CPF aqui (opcional)
-    return true;
+function transformarEmInput(id) {
+    const elemento = document.getElementById(id);
+    const valor = elemento.innerText;
+    elemento.innerHTML = `<input type="text" id="input-${id}" value="${valor}">`;
 }
 
-// Função para validar o e-mail
-function validarEmail(email) {
-    const re = /\S+@\S+\.\S+/;
-    return re.test(email);
+function salvarValor(id) {
+    const inputElemento = document.getElementById(`input-${id}`);
+    const novoValor = inputElemento.value;
+    const elemento = document.getElementById(id);
+    elemento.innerText = novoValor;
 }

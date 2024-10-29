@@ -1,29 +1,22 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-y: auto;
-}
-
+/* Configurações gerais */
 body {
-    background-image: url('./img/20220513_hortifruti_materia.jpg');
+    font-family: Arial, sans-serif;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    margin: 0;
     backdrop-filter: blur(5px);
 }
 
+/* Container principal */
 .container {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 90%;
     max-width: 500px;
     padding: 20px;
@@ -33,55 +26,51 @@ body {
     margin: 20px;
 }
 
+/* Estilo da caixa de formulário */
 .card {
-    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     text-align: center;
+    width: 100%;
     color: #333;
 }
 
-.logo-container {
-    display: flex;
-    margin-top: 20px;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
+/* Logo */
 .logo {
-    max-width: 150px;
+    max-width: 100px;
     height: auto;
+    margin-bottom: 20px;
+    margin-top: 0px;
 }
 
+/* Cabeçalho do formulário */
 h2 {
     margin-bottom: 30px;
     color: #FF7300;
     font-size: 24px;
 }
 
-.input-container {
-    margin-bottom: 15px;
-    width: 100%;
+/* Estilos para seções de informações */
+.section {
+    text-align: left;
+    margin-bottom: 20px;
 }
 
-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
+.section h3 {
     color: #FF7300;
-    text-align: left; /* Alinha o texto à esquerda */
-}
-
-input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid #FF7300;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #f0f0f0;
-    color: #333;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
+.section p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Estilo do botão */
 .btn {
     background-color: #FF7300;
     color: #fff;
@@ -94,30 +83,32 @@ input {
     transition: background-color 0.3s ease;
 }
 
+.btn i {
+    margin-right: 5px;
+}
+
 .btn:hover {
     background-color: #FF5B00;
 }
 
-.error-message, .success-message {
-    font-size: 12px;
-    margin-top: 10px;
-}
-
-.error-message {
-    color: red;
-}
-
-.success-message {
-    color: green;
-}
-
+/* Responsividade */
 @media (max-width: 768px) {
+    .card {
+        padding: 20px;
+        max-width: 100%;
+    }
     .logo {
-        max-width: 100px;
+        max-width: 70px;
     }
 }
 
 @media (max-width: 480px) {
+    .card {
+        padding: 15px;
+    }
+    .logo {
+        max-width: 60px;
+    }
     h2 {
         font-size: 20px;
     }
