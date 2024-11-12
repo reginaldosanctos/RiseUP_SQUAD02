@@ -1,110 +1,68 @@
-document.addEventListener("DOMContentLoaded", carregarProdutos);
-
-let produtoSelecionado = null;
-
-function carregarProdutos() {
-    const produtos = JSON.parse(localStorage.getItem("produtos")) || getProdutosPadrao();
-    const listaProdutos = document.getElementById("produtos-lista");
-    listaProdutos.innerHTML = "";
-
-    produtos.forEach(produto => criarProdutoCard(produto));
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
 }
 
-function getProdutosPadrao() {
-    return [
-        { nome: "Arroz", categoria: "mercado", vendas: "1200", imagem: "https://via.placeholder.com/150?text=Arroz" },
-        { nome: "Feijão", categoria: "mercado", vendas: "950", imagem: "https://via.placeholder.com/150?text=Feijão" },
-        { nome: "Detergente", categoria: "limpeza", vendas: "300", imagem: "https://via.placeholder.com/150?text=Detergente" },
-        { nome: "Sabão em Pó", categoria: "limpeza", vendas: "200", imagem: "https://via.placeholder.com/150?text=Sabão+em+Pó" },
-        { nome: "Carne", categoria: "acougue", vendas: "500", imagem: "https://via.placeholder.com/150?text=Carne" },
-        { nome: "Pão", categoria: "padaria", vendas: "1200", imagem: "https://via.placeholder.com/150?text=Pão" }
-    ];
-}
+// Lógica do formulário de login
+document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    // Aqui você pode adicionar a lógica para login
+    alert('Login realizado com sucesso!');
 
-function criarProdutoCard(produto) {
-    const listaProdutos = document.getElementById("produtos-lista");
-    const produtoCard = document.createElement("div");
-    produtoCard.className = `produto-card ${produto.categoria}`;
-    produtoCard.innerHTML = `
-        <img src="${produto.imagem}" alt="${produto.nome}" class="produto-img">
-        <h2 class="produto-nome">${produto.nome}</h2>
-        <p class="produto-categoria">${produto.categoria}</p>
-        <p class="produto-vendas">Quant. Vendida: ${produto.vendas} unidades</p>
-        <button class="editar-btn" onclick="editarProduto(this)">Editar</button>
-    `;
-    listaProdutos.appendChild(produtoCard);
-}
+    // Redireciona para a tela principal após o alerta
+    window.location.href = 'principal.html';
+});
 
-function editarProduto(button) {
-    const produtoCard = button.parentElement;
-    produtoSelecionado = produtoCard;
+// Adiciona eventos para o comportamento do menu lateral
+const menuLateral = document.querySelector('.menu-lateral');
+const conteudoPrincipal = document.querySelector('.conteudo-principal');
+const userName = document.querySelector('.user-name'); // Seleciona o nome do usuário
 
-    document.getElementById("nome-produto").value = produtoCard.querySelector(".produto-nome").textContent;
-    document.getElementById("categoria-produto").value = produtoCard.classList[1];
-    document.getElementById("vendas-produto").value = produtoCard.querySelector(".produto-vendas").textContent.replace("Quant. Vendida: ", "").replace(" unidades", "");
-    document.getElementById("imagem-produto").value = produtoCard.querySelector(".produto-img").src;
+// Redimensiona o menu lateral e o conteúdo ao passar o mouse
+menuLateral.addEventListener('mouseenter', function () {
+    this.style.width = '250px';
+    conteudoPrincipal.style.marginLeft = '250px'; // Ajusta a margem do conteúdo
+    userName.style.opacity = '1'; // Mostra o nome do usuário
+});
 
-    document.getElementById("modal-edicao").style.display = "flex";
-}
+menuLateral.addEventListener('mouseleave', function () {
+    this.style.width = '80px';
+    conteudoPrincipal.style.marginLeft = '80px'; // Restaura a margem do conteúdo
+    userName.style.opacity = '0'; // Esconde o nome do usuário
+});
 
-function fecharModal() {
-    document.getElementById("modal-edicao").style.display = "none";
-}
+// Redimensiona o menu ao clicar no ícone do menu
+const menuIcon = document.querySelector('.menu-icon');
 
-function salvarEdicao() {
-    const nome = document.getElementById("nome-produto").value;
-    const categoria = document.getElementById("categoria-produto").value;
-    const vendas = document.getElementById("vendas-produto").value;
-    const imagem = document.getElementById("imagem-produto").value;
+menuIcon.addEventListener('click', function () {
+    if (menuLateral.style.width === '250px') {
+        menuLateral.style.width = '80px';
+        conteudoPrincipal.style.marginLeft = '80px'; // Restaura a margem do conteúdo
+        userName.style.opacity = '0'; // Esconde o nome do usuário
+    } else {
+        menuLateral.style.width = '250px';
+        conteudoPrincipal.style.marginLeft = '250px'; // Ajusta a margem do conteúdo
+        userName.style.opacity = '1'; // Mostra o nome do usuário
+    }
+});
 
-    produtoSelecionado.querySelector(".produto-nome").textContent = nome;
-    produtoSelecionado.className = `produto-card ${categoria}`;
-    produtoSelecionado.querySelector(".produto-vendas").textContent = `Quant. Vendida: ${vendas} unidades`;
-    produtoSelecionado.querySelector(".produto-img").src = imagem;
+// Lógica para exibir/ocultar detalhes do ranking
+const modulo1Link = document.getElementById('modulo1Link');
+const rankingDetails = document.getElementById('rankingDetails');
 
-    salvarProdutosLocal();
-    fecharModal();
+modulo1Link.addEventListener('click', function (e) {
+    e.preventDefault(); // Impede o comportamento padrão do link
+    if (rankingDetails.style.display === 'none') {
+        rankingDetails.style.display = 'block'; // Exibe os detalhes do ranking
+    } else {
+        rankingDetails.style.display = 'none'; // Oculta os detalhes do ranking
+    }
+});
 
-    const mensagemConfirmacao = document.getElementById("mensagem-confirmacao");
-    mensagemConfirmacao.style.display = "block";
-    setTimeout(() => {
-        mensagemConfirmacao.style.display = "none";
-    }, 3000);
-}
-
-function excluirProduto() {
-    produtoSelecionado.remove();
-    salvarProdutosLocal();
-    fecharModal();
-}
-
-function adicionarProduto() {
-    const novoProduto = {
-        nome: "Novo Produto",
-        categoria: "mercado",
-        vendas: "0",
-        imagem: "https://via.placeholder.com/150?text=Novo+Produto"
-    };
-    criarProdutoCard(novoProduto);
-    salvarProdutosLocal();
-    editarProduto(document.querySelector(".produto-card:last-child .editar-btn"));
-}
-
-function salvarProdutosLocal() {
-    const produtos = Array.from(document.querySelectorAll(".produto-card")).map(card => ({
-        nome: card.querySelector(".produto-nome").textContent,
-        categoria: card.classList[1],
-        vendas: card.querySelector(".produto-vendas").textContent.replace("Quant. Vendida: ", "").replace(" unidades", ""),
-        imagem: card.querySelector(".produto-img").src
-    }));
-    localStorage.setItem("produtos", JSON.stringify(produtos));
-}
-
-function filtrarCategoria() {
-    const categoriaSelecionada = document.getElementById("categoria").value;
-    const produtos = document.querySelectorAll(".produto-card");
-
-    produtos.forEach(produto => {
-        produto.style.display = categoriaSelecionada === "todos" || produto.classList.contains(categoriaSelecionada) ? '' : 'none';
-    });
+function logout() {
+    // Adicione aqui a lógica de logout, se necessário (por exemplo, limpar sessionStorage)
+    console.log("Usuário deslogado"); // Log de saída para depuração
+    // Redirecionar para a página de login
+    window.location.href = "index.html";
 }
