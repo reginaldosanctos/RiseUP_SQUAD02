@@ -3,31 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Usuário - Empresa</title>
+    <title>Produtos Mais Vendidos</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="card">
-            <img src="./img/Imagem do WhatsApp de 2024-10-08 à(s) 14.28.56_74a47912.jpg" alt="Logo da Empresa" class="logo">
-            <h2>Perfil da Empresa</h2>
-            <div class="section">
-                <h3>Dados da Empresa</h3>
-                <p><strong>Nome:</strong><br> <span id="nome">Silvas Supermercados</span></p>
-                <p><strong>Endereço:</strong><br> <span id="endereco">Rua Principal, 123, Centro</span></p>
-                <p><strong>Telefone:</strong><br> <span id="telefone">(11) 98765-4321</span></p>
-                <p><strong>E-mail:</strong><br> <span id="email">contato@silvassupermercados.com.br</span></p>
-                <p><strong>CNPJ:</strong><br> <span id="cnpj">12.345.678/0001-99</span></p>
+        <nav id="left-menu" class="left-menu">
+            <!-- Menu à esquerda -->
+        </nav>
+        
+        <div class="conteudo-principal">
+            <h1>Produtos Mais Vendidos</h1>
+        
+            <button onclick="adicionarProduto()">Adicionar Novo Produto</button>
+        
+            <div class="categoria-filtro">
+                <label for="categoria">Filtrar por Categoria:</label>
+                <select id="categoria" onchange="filtrarCategoria()">
+                    <option value="todos">Todos</option>
+                    <option value="mercado">Mercado</option>
+                    <option value="limpeza">Limpeza</option>
+                    <option value="acougue">Açougue</option>
+                    <option value="padaria">Padaria</option>
+                </select>
             </div>
-            <div class="section">
-                <h3>Data de Cadastro</h3>
-                <p>01 de Janeiro de 2024</p>
+        
+            <div class="produtos-lista" id="produtos-lista">
+                <!-- Produtos serão carregados dinamicamente aqui -->
             </div>
-            <button class="btn" id="editarPerfil"><i class="fas fa-edit"></i> Editar Informações</button>
-        </div>
-        <p id="mensagem" style="display:none; color: green; text-align: center;">Informações alteradas com sucesso!</p>
+        </div>        
     </div>
-    <script src="script.js"></script>
+
+    <div id="modal-edicao" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2>Editar Produto</h2>
+            <label for="nome-produto">Nome do Produto:</label>
+            <input type="text" id="nome-produto">
+            <label for="categoria-produto">Categoria:</label>
+            <select id="categoria-produto">
+                <option value="mercado">Mercado</option>
+                <option value="limpeza">Limpeza</option>
+                <option value="acougue">Açougue</option>
+                <option value="padaria">Padaria</option>
+            </select>
+            <label for="vendas-produto">Quantidade Vendida:</label>
+            <input type="text" id="vendas-produto">
+            <label for="imagem-produto">URL da Imagem:</label>
+            <input type="text" id="imagem-produto">
+            <button onclick="salvarEdicao()">Salvar</button>
+            <button onclick="excluirProduto()">Excluir Produto</button>
+
+            <!-- Colocando a mensagem de confirmação dentro da modal-content -->
+            <p id="mensagem-confirmacao" class="mensagem-confirmacao" style="display: none;">Produto modificado ou criado com sucesso!</p>
+        </div>
+    </div>
 </body>
 </html>
