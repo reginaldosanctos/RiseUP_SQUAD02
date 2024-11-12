@@ -3,63 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos Mais Vendidos</title>
+    <title>Login - Silvas Supermercados</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <nav id="left-menu" class="left-menu">
-            <!-- Menu à esquerda -->
-        </nav>
-        
-        <div class="conteudo-principal">
-            <h1>Produtos Mais Vendidos</h1>
-        
-            <button onclick="adicionarProduto()">Adicionar Novo Produto</button>
-        
-            <div class="categoria-filtro">
-                <label for="categoria">Filtrar por Categoria:</label>
-                <select id="categoria" onchange="filtrarCategoria()">
-                    <option value="todos">Todos</option>
-                    <option value="mercado">Mercado</option>
-                    <option value="limpeza">Limpeza</option>
-                    <option value="acougue">Açougue</option>
-                    <option value="padaria">Padaria</option>
-                </select>
+    <div class="login-container">
+        <div class="login-box">
+            <img src="silvas.png" alt="Silvas Supermercados" class="logo">
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">👁</span>
+                </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Lembrar de mim</label>
+                </div>
+                <button type="submit" class="login-button">Entrar</button>
+            </form>
+            <div class="links">
+                <a href="#" class="forgot-password">Esqueci minha senha</a>
+                <a href="#" class="admin-contact">Falar com o administrador</a>
             </div>
-        
-            <div class="produtos-lista" id="produtos-lista">
-                <!-- Produtos serão carregados dinamicamente aqui -->
-            </div>
-        </div>        
-    </div>
-
-    <div id="modal-edicao" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="fecharModal()">&times;</span>
-            <h2>Editar Produto</h2>
-            <label for="nome-produto">Nome do Produto:</label>
-            <input type="text" id="nome-produto">
-            <label for="categoria-produto">Categoria:</label>
-            <select id="categoria-produto">
-                <option value="mercado">Mercado</option>
-                <option value="limpeza">Limpeza</option>
-                <option value="acougue">Açougue</option>
-                <option value="padaria">Padaria</option>
-            </select>
-            <label for="vendas-produto">Quantidade Vendida:</label>
-            <input type="text" id="vendas-produto">
-            <label for="imagem-produto">URL da Imagem:</label>
-            <input type="text" id="imagem-produto">
-            <button onclick="salvarEdicao()">Salvar</button>
-            <button onclick="excluirProduto()">Excluir Produto</button>
-
-            <!-- Colocando a mensagem de confirmação dentro da modal-content -->
-            <p id="mensagem-confirmacao" class="mensagem-confirmacao" style="display: none;">Produto modificado ou criado com sucesso!</p>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
