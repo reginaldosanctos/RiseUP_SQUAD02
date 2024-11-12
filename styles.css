@@ -272,6 +272,24 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.modulo2 a {
+    display: flex; /* Alinha o ícone e o texto horizontalmente */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    background-color: #ff9d00; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras */
+}
+
+.modulo2 a:hover {
+    background-color: #e68a00; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "elevação" */
+}
+
+
 .modulo3 {
     background-color: #ff9d00;
     padding: 20px;
@@ -281,6 +299,23 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.modulo3 a {
+    display: flex; /* Alinha o ícone e o texto horizontalmente */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    background-color: #ff9d00; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras */
+}
+
+.modulo3 a:hover {
+    background-color: #e68a00; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "elevação" */
+}
+
 .modulo4 {
     background-color: #ff9d00;
     padding: 20px;
@@ -288,6 +323,23 @@ h1 {
     color: white;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modulo4 a {
+    display: flex; /* Alinha o ícone e o texto horizontalmente */
+    align-items: center; /* Alinha o conteúdo verticalmente */
+    background-color: #ff9d00; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras */
+}
+
+.modulo4 a:hover {
+    background-color: #e68a00; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "elevação" */
 }
 
 @media (max-width: 768px) {
