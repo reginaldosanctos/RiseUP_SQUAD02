@@ -1,0 +1,205 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8e8c7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.left-menu {
+    width: 200px;
+    background-color: #f4d2a0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo-principal {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 20px; /* Adiciona uma margem para afastar da borda esquerda */
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.modal {
+    display: none; /* Oculto por padrão */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #ffebcc; /* Laranja claro */
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    color: #ff9900; /* Título em laranja */
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.modal-content input,
+.modal-content select {
+    background-color: #e0f7e0; /* Verde claro */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    background-color: #ffa500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #cc7a00; /* Tom mais escuro de laranja no hover */
+}
+
+/* Botão de excluir com cor diferenciada */
+button.excluir {
+    background-color: #ff6666; /* Vermelho claro para excluir */
+}
+
+button.excluir:hover {
+    background-color: #cc3333; /* Tom mais escuro no hover */
+}
+
+/* Mensagem de confirmação após salvar */
+.mensagem-confirmacao {
+    color: #33cc33; /* Verde para confirmar sucesso */
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.produtos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.produto-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.produto-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.produto-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.produto-nome {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+
+.produto-categoria,
+.produto-vendas {
+    font-size: 0.9em;
+    color: #666;
+}
+
+button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #cc7a00;
+}
+
+.mensagem-confirmacao {
+    background-color: #e0ffe0; /* Verde claro para destaque */
+    color: #333; /* Cor do texto */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Coloca a mensagem acima de outros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.categoria-filtro {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.categoria-filtro label {
+    font-weight: bold;
+    color: #333; /* Cor do texto */
+}
+
+.categoria-filtro select {
+    background-color: #c2f0c2;
+    border: none;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.categoria-filtro select:hover {
+    background-color: #c1efc1; /* Verde claro mais escuro ao passar o mouse */
+}
+
+.categoria-filtro select:focus {
+    border-color: #6cd96c; /* Verde mais escuro ao focar */
+    box-shadow: 0 0 5px rgba(108, 217, 108, 0.5);
+}
