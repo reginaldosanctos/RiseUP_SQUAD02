@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhamento de Fidelidade - Supermercado Silva</title>
+    <link rel="stylesheet" href="fidelidade.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Conteúdo Principal -->
+        <div class="conteudo-principal">
+            <h1>Acompanhamento de Fidelidade</h1>
+
+            <!-- Gráfico de Pontos -->
+            <div class="grafico-pontos">
+                <h4>Gráfico de Pontos</h4>
+                <canvas id="graficoPontos" width="300" height="150"></canvas>
+            </div>
+
+            <!-- Tabela de Clientes -->
+            <div class="clientes-lista">
+                <h2>Painel de Pontos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Pontos</th>
+                            <th>Progresso</th>
+                            <th>Ações</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clientes">
+                        <!-- Cliente A -->
+                        <tr id="cliente-1">
+                            <td>Cliente A</td>
+                            <td><span class="pontos">250</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 50%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-1">Compra de R$ 100,00</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-1')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-1')">Editar Ação</button>
+                            </td>
+                        </tr>
+
+                        <!-- Cliente B -->
+                        <tr id="cliente-2">
+                            <td>Cliente B</td>
+                            <td><span class="pontos">180</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 36%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-2">Indicação de amigo</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-2')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-2')">Editar Ação</button>
+                            </td>
+                        </tr>
+
+                        <!-- Cliente C -->
+                        <tr id="cliente-3">
+                            <td>Cliente C</td>
+                            <td><span class="pontos">320</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 64%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-3">Primeira compra</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-3')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-3')">Editar Ação</button>
+                            </td>
+                        </tr>
+
+                        <!-- Cliente D -->
+                        <tr id="cliente-4">
+                            <td>Cliente D</td>
+                            <td><span class="pontos">450</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 90%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-4">Compra em 3 categorias</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-4')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-4')">Editar Ação</button>
+                            </td>
+                        </tr>
+
+                        <!-- Cliente E -->
+                        <tr id="cliente-5">
+                            <td>Cliente E</td>
+                            <td><span class="pontos">120</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 24%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-5">Resgate de recompensa</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-5')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-5')">Editar Ação</button>
+                            </td>
+                        </tr>
+
+                        <!-- Cliente F -->
+                        <tr id="cliente-6">
+                            <td>Cliente F</td>
+                            <td><span class="pontos">500</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 100%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-6">Compra em 5 categorias</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-6')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-6')">Editar Ação</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="botoes-edicao">
+                <button onclick="abrirMenuEdicao()">Editar Ação, Pontos e Clientes</button>
+            </div>
+        </div>
+
+            <!-- Formulário para Gerenciar Clientes -->
+            <div class="adicionar-cliente">
+                <h3>Gerenciar Clientes</h3>
+                <form id="form-adicionar-cliente">
+                    <input type="text" id="nome-cliente" placeholder="Nome do cliente" />
+                    <input type="number" id="pontos-cliente-adicionar" placeholder="Pontuação inicial" />
+                    <select id="acao-cliente-adicionar">
+                        <option value="" disabled selected>Escolha uma ação ou crie uma nova</option>
+                        <option value="Compra de R$ 100,00">Compra de R$ 100,00</option>
+                        <option value="Indicação de amigo">Indicação de amigo</option>
+                        <option value="Primeira compra">Primeira compra</option>
+                        <option value="Compra em 3 categorias">Compra em 3 categorias</option>
+                        <option value="Resgate de recompensa">Resgate de recompensa</option>
+                        <option value="nova">Adicionar nova ação...</option>
+                    </select>
+                    <input type="text" id="nova-acao" placeholder="Digite a nova ação" style="display: none;" />
+                    <button type="submit">Adicionar Cliente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="fidelidade.js"></script>
+</body>
+
+</html>
