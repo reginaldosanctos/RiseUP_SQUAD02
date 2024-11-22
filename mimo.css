@@ -6,7 +6,6 @@
 }
 
 body {
-    background-image: url('background.jpg');
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -439,76 +438,126 @@ h1 {
     font-size: 16px; /* Tamanho do ícone */
 }
 
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1em;
+}
+
+/* Cartões de mimos */
 .mimos-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 20px; /* Espaçamento entre os itens */
     padding: 20px;
-    width: 90%;
-    max-width: 700px;
-    background-color: rgba(255, 255, 255, 0.8); 
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .mimo-card {
+    margin-top: 20'px; /* Espaçamento em relação ao tema da página */
+}
+
+.mimo-card {
+    width: 250px;
+    background: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 200px;
-    padding: 15px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-  }
-  
-  .mimo-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .sorveteria {
-    background-color: #fbeff2;
-    border-color: #f29bb3;
-  }
-  
-  .sorveteria h2 {
-    color: #d9536f;
-  }
-  
-  .restaurante {
-    background-color: #e3f4ff;
-    border-color: #64b5f6;
-  }
-  
-  .restaurante h2 {
-    color: #4285f4;
-  }
-  
-  .cafeteria {
-    background-color: #f5f5dc;
-    border-color: #d2b48c;
-  }
-  
-  .cafeteria h2 {
-    color: #a0522d;
-  }
-  
-  .lanchonete {
-    background-color: #fff2e6;
-    border-color: #ffab73;
-  }
-  
-  .lanchonete h2 {
-    color: #ff5722;
-  }
-  
-  
-  .mimo-card h2 {
-    font-size: 1.5em;
-  }
-  
-  .mimo-card p {
-    font-size: 1em;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mimo-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mimo-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #6200ea;
+}
+
+.mimo-card p {
     color: #555;
-  }
+}
+
+/* Cores personalizadas */
+.sorveteria {
+    border-left: 5px solid #ff6f61;
+}
+
+.restaurante {
+    border-left: 5px solid #ff8e53;
+}
+
+.cafeteria {
+    border-left: 5px solid #ffb74d;
+}
+
+.lanchonete {
+    border-left: 5px solid #64b5f6;
+}
+
+.livraria {
+    border-left: 5px solid #4db6ac;
+}
+
+.academia {
+    border-left: 5px solid #ba68c8;
+}
+
+.petshop {
+    border-left: 5px solid #90a4ae;
+}
+
+.loja-de-roupas {
+    border-left: 5px solid #ffa726;
+}
+
+.padaria {
+    border-left: 5px solid #f06292;
+}
+
+.floricultura {
+    border-left: 5px solid #a5d6a7;
+}
+
+.cinema {
+    border-left: 5px solid #7986cb;
+}
+
+.spa {
+    border-left: 5px solid #e57373;
+}
+
+.loja-de-calcados {
+    border-left: 5px solid #ff7043;
+}
+
+.pizzaria {
+    border-left: 5px solid #81c784;
+}
+
+.salão-de-beleza {
+    border-left: 5px solid #9151ff;
+}
+
+.loja-de-brinquedos {
+    border-left: 5px solid #64b5f6;
+}
+
+.bar {
+    border-left: 5px solid #f9a825;
+}
+
+.supermercado {
+    border-left: 5px solid #4caf50;
+}
