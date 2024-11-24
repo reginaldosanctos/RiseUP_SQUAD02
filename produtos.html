@@ -14,12 +14,12 @@
         <nav id="left-menu" class="left-menu">
             <!-- Menu à esquerda -->
         </nav>
-        
+
         <div class="conteudo-principal">
             <h1>Produtos Mais Vendidos</h1>
-        
-            <button onclick="adicionarProduto()">Adicionar Novo Produto</button>
-        
+
+            <button id="botao-adicionar" onclick="adicionarProduto()">+ Adicionar Novo Produto</button>
+
             <div class="categoria-filtro">
                 <label for="categoria">Filtrar por Categoria:</label>
                 <select id="categoria" onchange="filtrarCategoria()">
@@ -30,16 +30,16 @@
                     <option value="padaria">Padaria</option>
                 </select>
             </div>
-        
+
             <div class="produtos-lista" id="produtos-lista">
                 <!-- Produtos serão carregados dinamicamente aqui -->
             </div>
-        </div>        
+        </div>
     </div>
 
     <div id="modal-edicao" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="fecharModal()">&times;</span>
+            <span class="close" onclick="fecharModal()" aria-label="Fechar modal">&times;</span>
             <h2>Editar Produto</h2>
             <label for="nome-produto">Nome do Produto:</label>
             <input type="text" id="nome-produto">
@@ -54,11 +54,10 @@
             <input type="text" id="vendas-produto">
             <label for="imagem-produto">URL da Imagem:</label>
             <input type="text" id="imagem-produto">
-            <button onclick="salvarEdicao()">Salvar</button>
-            <button onclick="excluirProduto()">Excluir Produto</button>
+            <button id="btn-salvar" onclick="salvarEdicao()">Salvar</button>
+            <button id="btn-excluir" onclick="excluirProduto()">Excluir Produto</button>
 
-            <!-- Colocando a mensagem de confirmação dentro da modal-content -->
-            <p id="mensagem-confirmacao" class="mensagem-confirmacao" style="display: none;">Produto modificado ou criado com sucesso!</p>
+            <p id="mensagem-confirmacao" class="mensagem-confirmacao hidden">Produto modificado ou criado com sucesso!</p>
         </div>
     </div>
 </body>
