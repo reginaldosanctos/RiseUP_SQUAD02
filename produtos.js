@@ -12,12 +12,12 @@ function carregarProdutos() {
 
 function getProdutosPadrao() {
     return [
-        { nome: "Arroz", categoria: "mercado", vendas: "1200", imagem: "https://via.placeholder.com/150?text=Arroz" },
-        { nome: "Feijão", categoria: "mercado", vendas: "950", imagem: "https://via.placeholder.com/150?text=Feijão" },
-        { nome: "Detergente", categoria: "limpeza", vendas: "300", imagem: "https://via.placeholder.com/150?text=Detergente" },
-        { nome: "Sabão em Pó", categoria: "limpeza", vendas: "200", imagem: "https://via.placeholder.com/150?text=Sabão+em+Pó" },
-        { nome: "Carne", categoria: "acougue", vendas: "500", imagem: "https://via.placeholder.com/150?text=Carne" },
-        { nome: "Pão", categoria: "padaria", vendas: "1200", imagem: "https://via.placeholder.com/150?text=Pão" }
+        { nome: "Arroz", categoria: "mercado", vendas: "1200", imagem: "arroz.png" },
+        { nome: "Feijão", categoria: "mercado", vendas: "950", imagem: "feijao.png" },
+        { nome: "Detergente", categoria: "limpeza", vendas: "300", imagem: "detergente.png" },
+        { nome: "Sabão em Pó", categoria: "limpeza", vendas: "200", imagem: "sabaoempo.png" },
+        { nome: "Carne", categoria: "acougue", vendas: "500", imagem: "carne.png" },
+        { nome: "Pão", categoria: "padaria", vendas: "1200", imagem: "pao.png" }
     ];
 }
 
