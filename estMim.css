@@ -1,0 +1,241 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} /* Reseta a página e impõe a fonte padrão */
+
+body {
+  height: 900vh;
+  font-family: Arial, sans-serif;
+  background: url('seu-fundo.jpg') no-repeat center center/cover; 
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  backdrop-filter: blur(5px);
+} /* Define o tamanho do corpo da página */
+
+/* Configura o menu lateral */
+nav.left-menu {
+  width: 70px;
+  height: 100%;
+  background-color: orange;
+  padding: 40px 0px 40px 1%;
+  box-shadow: 3px 0 0 orangered;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: width 0.5s, margin-left 0.5s;
+  z-index: 1000; /* Valor alto para sobrepor outros elementos */
+}
+
+nav.left-menu:hover {
+  width: 300px;
+}
+
+.menu-burguer {
+  width: 100%;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.menu-burguer > i {
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+ul {
+  height: 100%;
+  list-style-type: none;
+}
+
+ul li.menu-items {
+  transition: 0.3s;
+}
+
+ul li.menu-items:hover {
+  background-color: orangered;
+}
+
+ul li.menu-items a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 20px 4%;
+  display: flex;
+  margin-bottom: 20px;
+  line-height: 40px;
+}
+
+ul li.menu-items a .menu-text {
+  margin-left: 40px;
+}
+
+ul li.menu-items a .list-icon > i {
+  font-size: 30px;
+}
+
+/* Configuração do conteúdo principal */
+.conteudo-principal {
+  margin-left: 70px; /* Espaço para o menu recolhido */
+  position: relative;
+  z-index: 1;
+  transition: margin-left 0.5s; /* Transição suave para ajustar a margem */
+  padding-left: 20px; /* Adiciona um espaço extra para não ficar colado no menu */
+}
+
+/* Quando o menu lateral é expandido, a margem é ajustada */
+nav.left-menu:hover + .conteudo-principal {
+  margin-left: 300px; /* Largura do menu expandido */
+  padding-left: 20px; /* Mantém o espaçamento extra mesmo com o menu expandido */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  header {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+    color: #444;
+  }
+  
+  header p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  .mimos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    width: 90%;
+    max-width: 700px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .mimo-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .mimo-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .sorveteria {
+    background-color: #fbeff2;
+    border-color: #f29bb3;
+  }
+  
+  .sorveteria h2 {
+    color: #d9536f;
+  }
+  
+  .restaurante {
+    background-color: #e3f4ff;
+    border-color: #64b5f6;
+  }
+  
+  .restaurante h2 {
+    color: #4285f4;
+  }
+  
+  .cafeteria {
+    background-color: #f5f5dc;
+    border-color: #d2b48c;
+  }
+  
+  .cafeteria h2 {
+    color: #a0522d;
+  }
+  
+  .lanchonete {
+    background-color: #fff2e6;
+    border-color: #ffab73;
+  }
+  
+  .lanchonete h2 {
+    color: #ff5722;
+  }
+  
+  
+  .mimo-card h2 {
+    font-size: 1.5em;
+  }
+  
+  .mimo-card p {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .btn {
+    background-color: #FF7300;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .btn:hover {
+    background-color: #FF5B00;
+  }
+  
+  @media (max-width: 768px) {
+    .mimos-container {
+      max-width: 100%;
+    }
+  
+    .mimo-card {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 2em;
+    }
+  
+    header p {
+      font-size: 1em;
+    }
+  
+    .mimo-card h2 {
+      font-size: 1.2em;
+    }
+  
+    .mimo-card p {
+      font-size: 0.9em;
+    }
+  
+    .btn {
+      font-size: 14px;
+    }
+  }
+  

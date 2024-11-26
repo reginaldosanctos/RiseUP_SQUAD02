@@ -1,0 +1,187 @@
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} /* Reseta a página e impõe a fonte padrão */
+
+body {
+    height: 900vh;
+} /* Define o tamanho do corpo da página */
+
+/* Configura o menu lateral */
+nav.left-menu {
+    width: 70px;
+    height: 100%;
+    background-color: orange;
+    padding: 40px 0px 40px 1%;
+    box-shadow: 3px 0 0 orangered;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.5s, margin-left 0.5s;
+    z-index: 1000; /* Valor alto para sobrepor outros elementos */
+}
+
+nav.left-menu:hover {
+    width: 300px;
+}
+
+.menu-burguer {
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.menu-burguer > i {
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.menu-items {
+    transition: 0.3s;
+}
+
+ul li.menu-items:hover {
+    background-color: orangered;
+}
+
+ul li.menu-items a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
+
+ul li.menu-items a .menu-text {
+    margin-left: 40px;
+}
+
+ul li.menu-items a .list-icon > i {
+    font-size: 30px;
+}
+
+/* Configuração do conteúdo principal */
+.conteudo-principal {
+    margin-left: 70px; /* Espaço para o menu recolhido */
+    position: relative;
+    z-index: 1;
+    transition: margin-left 0.5s; /* Transição suave para ajustar a margem */
+    padding-left: 20px; /* Adiciona um espaço extra para não ficar colado no menu */
+}
+
+/* Quando o menu lateral é expandido, a margem é ajustada */
+nav.left-menu:hover + .conteudo-principal {
+    margin-left: 300px; /* Largura do menu expandido */
+    padding-left: 20px; /* Mantém o espaçamento extra mesmo com o menu expandido */
+}
+
+/* Container principal */
+.conteudo-principal {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Título */
+.conteudo-principal h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Ranking */
+.ranking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Item do ranking */
+.rank-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Efeito hover */
+.rank-item:hover {
+    transform: scale(1.05);
+}
+
+/* Posição */
+.rank-item .position {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #555;
+    margin-right: 15px;
+}
+
+/* Detalhes (nome e coroa) */
+.rank-item .details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Coroa */
+.rank-item .crown {
+    font-size: 1.5em;
+}
+
+/* Nome */
+.rank-item .name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Estilos específicos para posições */
+.primeiro {
+    border-left: 10px solid gold;
+}
+
+.segundo {
+    border-left: 10px solid silver;
+}
+
+.terceiro {
+    border-left: 10px solid #cd7f32; /* Bronze */
+}
+
+/* Estilo específico para as coroas */
+.primeiro .crown {
+    color: gold; /* Ouro */
+}
+.segundo .crown {
+    color: silver; /* Prata */
+}
+.terceiro .crown {
+    color: #cd7f32; /* Bronze */
+}
+
+/* Itens do 4º ao 10º lugar não possuem coroa */
+.rank-item:not(.primeiro):not(.segundo):not(.terceiro) .crown {
+    display: none;
+}
+
+/* Itens do 4º ao 10º lugar */
+.rank-item:not(.primeiro):not(.segundo):not(.terceiro) {
+    border-left: 10px solid #ddd; /* Sem destaque */
+}

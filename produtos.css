@@ -1,34 +1,100 @@
-body {
-    font-family: monospace, sans-serif;
-    background-color: #ff9d00; /* Fundo em laranja */
+* {
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
+/* Reseta a página e impõe a fonte padrão */
+body {
+    height: 900vh; /* Define o tamanho do corpo da página */
+}
+
+/* Configura o menu lateral */
+nav.left-menu {
+    width: 70px;
+    height: 100%;
+    background-color: orange;
+    padding: 40px 0px 40px 1%;
+    box-shadow: 3px 0 0 orangered;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.5s; /* Transição para a mudança de largura */
+    z-index: 1000; /* Valor alto para sobrepor outros elementos */
+}
+
+nav.left-menu:hover {
+    width: 300px; /* Largura do menu quando expandido */
+}
+
+/* Configuração do ícone de menu */
+.menu-burguer {
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.menu-burguer > i {
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilo do menu */
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.menu-items {
+    transition: 0.3s;
+}
+
+ul li.menu-items:hover {
+    background-color: orangered;
+}
+
+ul li.menu-items a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
     display: flex;
-    justify-content: center; /* Centraliza o contêiner */
-    gap: 20px; /* Espaçamento entre os cartões */
-    flex-wrap: wrap; /* Permite que os cartões quebrem linha */
-    padding: 20px;
+    margin-bottom: 20px;
+    line-height: 40px;
 }
 
+ul li.menu-items a .menu-text {
+    margin-left: 40px;
+}
+
+ul li.menu-items a .list-icon > i {
+    font-size: 30px;
+}
+
+/* Estilo do conteúdo principal */
 .conteudo-principal {
     flex-grow: 1;
     padding: 20px;
-    margin-left: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    margin-left: 70px; /* Largura do menu quando não expandido */
+    position: relative;
+    transition: margin-left 0.5s; /* Transição suave para ajuste da margem */
+}
+
+nav.left-menu:hover + .conteudo-principal {
+    margin-left: 300px; /* Largura do menu expandido */
 }
 
 h1 {
     font-size: 2em;
-    color: #ffffff;
+    color: #333;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .modal {
-    display: none;
+    display: none; /* Oculto por padrão */
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -51,7 +117,7 @@ h1 {
 }
 
 .modal-content h2 {
-    color: #ff9d00; /* Título em laranja */
+    color: #ff9900; /* Título em laranja */
     font-size: 24px;
     margin-bottom: 15px;
 }
@@ -69,18 +135,18 @@ h1 {
 }
 
 button {
-    background-color: #e3b76b; /* Azul royal para destacar botões */
+    background-color: #ffa500;
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+    margin-bottom: 20px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #637ca6; /* Azul mais escuro no hover */
+    background-color: #cc7a00; /* Tom mais escuro de laranja no hover */
 }
 
 button.excluir {
@@ -91,34 +157,10 @@ button.excluir:hover {
     background-color: #cc3333; /* Tom mais escuro no hover */
 }
 
-#botao-adicionar {
-    display: block;
-    margin: 20px auto; /* Centraliza horizontalmente */
-    background-color: #e3b76b;
-    color: white;
-    padding: 10px 30px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase; /* Letras maiúsculas */
-}
-
-#botao-adicionar:hover {
-    background-color: #cc7a00; /* Laranja mais escuro no hover */
-}
-
 .mensagem-confirmacao {
-    background-color: #e0ffe0; /* Verde claro para destaque */
-    color: #333; /* Cor do texto */
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #33cc33; /* Verde para confirmar sucesso */
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 .produtos-lista {
@@ -135,7 +177,6 @@ button.excluir:hover {
     text-align: center;
     width: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: 'Courier New', Courier, monospace;
 }
 
 .produto-card:hover {
@@ -145,38 +186,52 @@ button.excluir:hover {
 
 .produto-card img {
     width: 100%;
-    max-width: 150px;
+    max-width: 150px; /* Define o limite máximo de largura */
     height: auto;
-    max-height: 150px;
+    max-height: 150px; /* Define o limite máximo de altura */
     margin-bottom: 10px;
     border-radius: 5px;
-    object-fit: cover;
+    object-fit: cover; /* Garante que a imagem se ajuste ao tamanho padronizado */
 }
 
 .produto-nome {
     font-weight: bold;
     font-size: 1.2em;
     margin-bottom: 5px;
-    text-transform: capitalize;
 }
 
 .produto-categoria,
 .produto-vendas {
     font-size: 0.9em;
     color: #666;
-    margin-bottom: 10px;
+}
+
+button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #cc7a00;
 }
 
 .mensagem-confirmacao {
-    background-color: #e0ffe0;
-    color: #333;
+    background-color: #e0ffe0; /* Verde claro para destaque */
+    color: #333; /* Cor do texto */
     padding: 10px;
     border-radius: 5px;
     text-align: center;
     position: fixed;
     top: 10px;
     right: 10px;
-    z-index: 1000;
+    z-index: 1000; /* Coloca a mensagem acima de outros elementos */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -190,11 +245,11 @@ button.excluir:hover {
 
 .categoria-filtro label {
     font-weight: bold;
-    color: #333;
+    color: #333; /* Cor do texto */
 }
 
 .categoria-filtro select {
-    background-color: #f0f0f0;
+    background-color: #c2f0c2;
     border: none;
     padding: 10px;
     font-size: 1em;
@@ -203,10 +258,10 @@ button.excluir:hover {
 }
 
 .categoria-filtro select:hover {
-    background-color: #b3b5b3;
+    background-color: #c1efc1; /* Verde claro mais escuro ao passar o mouse */
 }
 
 .categoria-filtro select:focus {
-    border-color: #f0f0f0;
-    box-shadow: 0 0 5px rgba(176, 179, 176, 0.5);
+    border-color: #6cd96c; /* Verde mais escuro ao focar */
+    box-shadow: 0 0 5px rgba(108, 217, 108, 0.5);
 }

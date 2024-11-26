@@ -1,0 +1,179 @@
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} /* Reseta a página e impõe a fonte padrão */
+
+body {
+    height: 900vh;
+} /* Define o tamanho do corpo da página */
+
+/* Configura o menu lateral */
+nav.left-menu {
+    width: 70px;
+    height: 100%;
+    background-color: orange;
+    padding: 40px 0px 40px 1%;
+    box-shadow: 3px 0 0 orangered;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.5s, margin-left 0.5s;
+    z-index: 1000; /* Valor alto para sobrepor outros elementos */
+}
+
+nav.left-menu:hover {
+    width: 300px;
+}
+
+.menu-burguer {
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.menu-burguer > i {
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.menu-items {
+    transition: 0.3s;
+}
+
+ul li.menu-items:hover {
+    background-color: orangered;
+}
+
+ul li.menu-items a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
+
+ul li.menu-items a .menu-text {
+    margin-left: 40px;
+}
+
+ul li.menu-items a .list-icon > i {
+    font-size: 30px;
+}
+
+/* Configuração do conteúdo principal */
+.conteudo-principal {
+    margin-left: 70px; /* Espaço para o menu recolhido */
+    position: relative;
+    z-index: 1;
+    transition: margin-left 0.5s; /* Transição suave para ajustar a margem */
+    padding-left: 20px; /* Adiciona um espaço extra para não ficar colado no menu */
+}
+
+/* Quando o menu lateral é expandido, a margem é ajustada */
+nav.left-menu:hover + .conteudo-principal {
+    margin-left: 300px; /* Largura do menu expandido */
+    padding-left: 20px; /* Mantém o espaçamento extra mesmo com o menu expandido */
+}
+
+/* Configuração do cabeçalho */
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.cabecalho a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-right: 20px;
+    line-height: 40px;
+}
+
+/* Configuração dos módulos dentro do conteúdo */
+.modulo_content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.modulo {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    max-width: 500px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+}
+
+.modulo:hover {
+    background-color: orange;
+    transition: 0.33s;
+}
+
+.text-modulo {
+    text-align: center;
+    text-size-adjust: initial;
+    margin: 5px;
+}
+
+/* Conteúdo dos módulos */
+.modulo1_content, .modulo2_content, .modulo3_content, .modulo4_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+    overflow: hidden; /* Impede que o conteúdo vaze */
+    box-sizing: border-box; /* Garante que o padding não cause overflow */
+}
+
+.modulo1_content {
+    min-height: 100vh;
+}
+
+.modulo2_content {
+    min-height: 100vh;
+    max-width: 100%; /* Garante que ocupe toda a largura disponível */
+}
+
+.modulo3_content {
+    min-height: 100vh;
+}
+
+.modulo4_content {
+    min-height: 100vh;
+}
+
+/* Garantir que os filhos internos (como texto, imagens, etc.) não ultrapassem os limites */
+.modulo1_content > *, .modulo2_content > *, .modulo3_content > *, .modulo4_content > * {
+    width: 100%;
+    box-sizing: border-box; /* Inclui o padding e border dentro do tamanho total */
+}
