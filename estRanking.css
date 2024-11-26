@@ -27,6 +27,7 @@
   
   .ranking-list {
     display: flex;
+    text-align: Center;
     flex-direction:row;
     gap: 12px;
   }
