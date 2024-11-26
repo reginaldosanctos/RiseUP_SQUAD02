@@ -1,0 +1,147 @@
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} /* Reseta a página e impõe a fonte padrão */
+
+body {
+    height: 100vh; /* Ajustado para ocupar toda a altura da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+    background-color: #f4f4f4; /* Cor de fundo mais neutra */
+}
+
+/* Configura o menu lateral */
+nav.left-menu {
+    width: 70px;
+    height: 100%;
+    background-color: orange;
+    padding: 40px 0px 40px 1%;
+    box-shadow: 3px 0 0 orangered;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.5s, margin-left 0.5s;
+    z-index: 1000; /* Valor alto para sobrepor outros elementos */
+}
+
+nav.left-menu:hover {
+    width: 300px;
+}
+
+.menu-burguer {
+    width: 100%;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.menu-burguer > i {
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.menu-items {
+    transition: 0.3s;
+}
+
+ul li.menu-items:hover {
+    background-color: orangered;
+}
+
+ul li.menu-items a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
+
+ul li.menu-items a .menu-text {
+    margin-left: 40px;
+}
+
+ul li.menu-items a .list-icon > i {
+    font-size: 30px;
+}
+
+/* Configuração do conteúdo principal */
+.conteudo-principal {
+    width: 100%; /* Garante que o conteúdo ocupe 100% da largura disponível */
+    max-width: 1400px; /* Aumenta a largura máxima do conteúdo */
+    position: relative;
+    z-index: 1;
+    padding-left: 20px; /* Espaço extra para não ficar colado no menu */
+    background-color: white; /* Fundo branco para o conteúdo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave para o conteúdo */
+    margin-left: 70px; /* Posição inicial do conteúdo com o menu retraído */
+    transition: margin-left 0.5s ease; /* Transição suave para ajustar a margem */
+    padding-right: 20px; /* Adiciona um pouco de espaço à direita */
+}
+
+/* Quando o menu lateral é expandido, a margem é ajustada */
+nav.left-menu:hover + .conteudo-principal {
+    margin-left: 300px; /* Largura do menu expandido */
+}
+
+/* Contêiner do formulário para evitar que toque o topo */
+.form-container {
+    padding: 50px 20px; /* Garante o espaço superior para o formulário */
+    background-color: white; /* Fundo branco para o formulário */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave para o formulário */
+    border-radius: 8px; /* Bordas arredondadas para um visual mais profissional */
+    margin-top: 20px; /* Espaço adicional ao topo */
+}
+
+/* Ajustes para os elementos de formulário */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"], button {
+    width: 100%;
+    max-width: 600px; /* Aumenta mais a largura das caixas de texto */
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+button {
+    background-color: #FF6F00;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: orange;
+}
+
+#mensagem {
+    text-align: center;
+    font-size: 16px;
+    color: #f44336;
+}
