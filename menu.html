@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Silvas Supermercados</title>
+    <link rel="stylesheet" href="./Styles/estMenu.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <img src="./Images/silvas.png" alt="Silvas Supermercados" class="logo">
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">👁️</span>
+                </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Lembrar de mim</label>
+                </div>
+                <a href="./principal.html">
+                <button type="button" class="login-button">Entrar</button>
+            </a>
+            </form>
+            <div class="links">
+                <a href="#" class="forgot-password">Esqueci minha senha</a>
+                <a href="#" class="admin-contact">Falar com o administrador</a>
+            </div>
+        </div>
+    </div>
+    <script src="./Scripts/script.js"></script>
+</body>
+</html>

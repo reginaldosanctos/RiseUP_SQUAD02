@@ -5,13 +5,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acompanhamento de Fidelidade - Supermercado Silva</title>
-    <link rel="stylesheet" href="fidelidade.css">
+    <link rel="stylesheet" href="./Styles/styles_fidelidade.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body>  
     <div class="container">
+        <!-- Menu à Esquerda -->
+        <nav id="left-menu" class="left-menu">
+            
+            <div id="menu-lateral" class="menu-lateral">
+                
+                <div class="menu-burguer">
+                    <i class="bi bi-list"></i>
+                </div>
+
+                <!--<div class="empr-logo"> 
+                    <img src="silvas.png" alt="Logo" class="logo">                   
+                </div>-->
+
+                <div class="user-name-menu">
+                    <span class="welcome-menu">Bem-Vindo</span>
+                    <span class="usr-name">Ricardo</span>
+                </div> <!-- Nome do Usuário -->
+                
+                <ul>
+                    <li class="menu-items">
+                        <a href="principal.html">
+                           <span class="list-icon"><i class="fas fa-tachometer-alt"></i></span> 
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </li>                    
+                    <li class="menu-items">
+                        <a href="#">
+                            <span class="list-icon"><i class="fas fa-users"></i></span>
+                            <span class="menu-text">Clientes</span>
+                        </a>
+                    </li>
+                    <li class="menu-items">
+                        <a href="#">
+                            <span class="list-icon"><i class="fas fa-bullhorn"></i></span>
+                            <span class="menu-text">Campanhas</span></a>
+                        </li>
+                </ul>
+            <!-- Logout no final do menu -->
+                <ul class="menu-logout">
+                    <li class="menu-items">
+                        <a href="./index.html">
+                            <span class="list-icon"><i class="fas fa-user"></i></span>
+                            <span class="menu-text">Usuário</span>
+                        </a>
+                    </li>
+                    <li class="menu-items">
+                        <a href="#">
+                            <span class="list-icon"><i class="fas fa-cog"></i></span>
+                            <span class="menu-text">Configurações</span>
+                        </a>
+                    </li>
+                    <li class="menu-items">
+                        <a href="./menu.html" onclick="logout()">
+                            <span class="list-icon"><i class="fas fa-sign-out-alt"></i></span>
+                            <span class="menu-text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
         <!-- Conteúdo Principal -->
         <div class="conteudo-principal">
             <h1>Acompanhamento de Fidelidade</h1>
@@ -36,9 +101,9 @@
                         </tr>
                     </thead>
                     <tbody id="clientes">
-                        <!-- Cliente A -->
+                        <!-- Cliente 1 -->
                         <tr id="cliente-1">
-                            <td>Cliente A</td>
+                            <td>João Souza</td>
                             <td><span class="pontos">250</span> pontos</td>
                             <td><div class="progress-bar">
                                     <div class="progress" style="width: 50%;"></div>
@@ -50,9 +115,9 @@
                             </td>
                         </tr>
 
-                        <!-- Cliente B -->
+                        <!-- Cliente 2 -->
                         <tr id="cliente-2">
-                            <td>Cliente B</td>
+                            <td>Ana Oliveira</td>
                             <td><span class="pontos">180</span> pontos</td>
                             <td><div class="progress-bar">
                                     <div class="progress" style="width: 36%;"></div>
@@ -64,9 +129,9 @@
                             </td>
                         </tr>
 
-                        <!-- Cliente C -->
+                        <!-- Cliente 3 -->
                         <tr id="cliente-3">
-                            <td>Cliente C</td>
+                            <td>Carlos Silva</td>
                             <td><span class="pontos">320</span> pontos</td>
                             <td><div class="progress-bar">
                                     <div class="progress" style="width: 64%;"></div>
@@ -78,9 +143,9 @@
                             </td>
                         </tr>
 
-                        <!-- Cliente D -->
+                        <!-- Cliente 4 -->
                         <tr id="cliente-4">
-                            <td>Cliente D</td>
+                            <td>Fernanda Costa</td>
                             <td><span class="pontos">450</span> pontos</td>
                             <td><div class="progress-bar">
                                     <div class="progress" style="width: 90%;"></div>
@@ -92,9 +157,9 @@
                             </td>
                         </tr>
 
-                        <!-- Cliente E -->
+                        <!-- Cliente 5 -->
                         <tr id="cliente-5">
-                            <td>Cliente E</td>
+                            <td>Luciana Pereira</td>
                             <td><span class="pontos">120</span> pontos</td>
                             <td><div class="progress-bar">
                                     <div class="progress" style="width: 24%;"></div>
@@ -106,9 +171,9 @@
                             </td>
                         </tr>
 
-                        <!-- Cliente F -->
+                        <!-- Cliente 6 -->
                         <tr id="cliente-6">
-                            <td>Cliente F</td>
+                            <td>Ricardo Almeida</td>
                             <td><span class="pontos">500</span> pontos</td>
                             <td><div class="progress-bar">
                                     <div class="progress" style="width: 100%;"></div>
@@ -119,38 +184,117 @@
                                 <button onclick="editarAcao('cliente-6')">Editar Ação</button>
                             </td>
                         </tr>
+
+                        <!-- Cliente 7 -->
+                        <tr id="cliente-7">
+                            <td>Juliana Rocha</td>
+                            <td><span class="pontos">400</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 80%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-7">Compra em 2 categorias</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-7')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-7')">Editar Ação</button>
+                            </td>
+                        </tr>
+
+                        <!-- Cliente 8 -->
+                        <tr id="cliente-8">
+                            <td>Diego Martins</td>
+                            <td><span class="pontos">90</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 18%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-8">Indicação de amigo</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-8')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-8')">Editar Ação</button>
+                            </td>
+                        </tr>
+
+                        <!-- Cliente 9 -->
+                        <tr id="cliente-9">
+                            <td>Patrícia Lima</td>
+                            <td><span class="pontos">360</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 72%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-9">Primeira compra</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-9')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-9')">Editar Ação</button>
+                            </td>
+                        </tr>
+
+                        <!-- Cliente 10 -->
+                        <tr id="cliente-10">
+                            <td>José Alves</td>
+                            <td><span class="pontos">560</span> pontos</td>
+                            <td><div class="progress-bar">
+                                    <div class="progress" style="width: 100%;"></div>
+                                </div></td>
+                            <td><span id="acao-cliente-10">Compra de R$ 200,00</span></td>
+                            <td>
+                                <button onclick="editarPontos('cliente-10')">Editar Pontos</button>
+                                <button onclick="editarAcao('cliente-10')">Editar Ação</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="botoes-edicao">
-                <button onclick="abrirMenuEdicao()">Editar Ação, Pontos e Clientes</button>
-            </div>
-        </div>
-
-            <!-- Formulário para Gerenciar Clientes -->
+            <!-- Formulário para Adicionar, Editar e Excluir Cliente -->
             <div class="adicionar-cliente">
                 <h3>Gerenciar Clientes</h3>
                 <form id="form-adicionar-cliente">
                     <input type="text" id="nome-cliente" placeholder="Nome do cliente" />
                     <input type="number" id="pontos-cliente-adicionar" placeholder="Pontuação inicial" />
-                    <select id="acao-cliente-adicionar">
-                        <option value="" disabled selected>Escolha uma ação ou crie uma nova</option>
-                        <option value="Compra de R$ 100,00">Compra de R$ 100,00</option>
-                        <option value="Indicação de amigo">Indicação de amigo</option>
-                        <option value="Primeira compra">Primeira compra</option>
-                        <option value="Compra em 3 categorias">Compra em 3 categorias</option>
-                        <option value="Resgate de recompensa">Resgate de recompensa</option>
-                        <option value="nova">Adicionar nova ação...</option>
-                    </select>
-                    <input type="text" id="nova-acao" placeholder="Digite a nova ação" style="display: none;" />
+                    <input type="text" id="acao-cliente-adicionar" placeholder="Definir ação" />
                     <button type="submit">Adicionar Cliente</button>
-                </form>
+                </form>                                              
+                <!-- Modal para editar pontos -->
+                <div id="modal-editar-pontos" class="modal">
+                    <div class="modal-content">
+                        <h3>Editar Pontos do Cliente</h3>
+                        <label for="input-pontos">Digite os novos pontos:</label>
+                        <input type="number" id="input-pontos" min="0" placeholder="Exemplo: 300">
+                        <button onclick="salvarPontos()">Salvar Pontos</button>
+                        <button onclick="fecharModalPontos()">Cancelar</button>
+                    </div>
+                </div>
+
+                <!-- Modal para editar ação -->
+                <div id="modal-editar-acao" class="modal">
+                    <div class="modal-content">
+                        <h3>Editar Ação do Cliente</h3>
+                        <label for="selecao-acao">Selecione a ação realizada:</label>
+                        <select id="selecao-acao">
+                            <option value="Compra de R$ 100,00">Compra de R$ 100,00</option>
+                            <option value="Indicação de amigo">Indicação de amigo</option>
+                            <option value="Primeira compra">Primeira compra</option>
+                            <option value="Compra em 3 categorias">Compra em 3 categorias</option>
+                            <option value="Resgate de recompensa">Resgate de recompensa</option>
+                        </select>
+                        <button onclick="salvarAcao()">Salvar Ação</button>
+                        <button onclick="fecharModalAcao()">Cancelar</button>
+                    </div>
+                </div>
+
+                <!-- Modal de Confirmação de Exclusão -->
+                <div id="modal-confirmar-exclusao" class="modal">
+                    <div class="modal-content">
+                        <h3>Confirmar Exclusão</h3>
+                        <p>Tem certeza de que deseja excluir este cliente?</p>
+                        <button onclick="excluirCliente()">Confirmar</button>
+                        <button onclick="fecharModalExclusao()">Cancelar</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="fidelidade.js"></script>
+    <script src="./Scripts/script_fidelidade.js"></script>
 </body>
 
 </html>

@@ -4,52 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./Styles/ranking.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <!-- Menu à Esquerda -->
-        <div id="menuLateral" class="menu-lateral">
-            <div class="menu-icon">
-                <img src="silvas.png" alt="Logo" class="logo"> <!-- Logo da Empresa -->
-            </div>
-            <div class="user-name">Fulano</div> <!-- Nome do Usuário -->
-            <ul class="menu-items">
-                <li><a href="principal.html"><i class="fas fa-tachometer-alt"></i><span class="menu-text">Dashboarding</span></a></li>
-                <li><a href="clientes.html"><i class="fas fa-users"></i><span class="menu-text">Clientes</span></a></li>
-                <li><a href="campanhas.html"><i class="fas fa-bullhorn"></i><span class="menu-text">Campanhas</span></a></li>
-            </ul>
+        <nav id="left-menu" class="left-menu">
+            
+            <div id="menu-lateral" class="menu-lateral">
+                
+                <div class="menu-burguer">
+                    <i class="bi bi-list"></i>
+                </div>
+
+                <!--<div class="empr-logo"> 
+                    <img src="silvas.png" alt="Logo" class="logo">                   
+                </div>-->
+
+                <div class="user-name-menu">
+                    <span class="welcome-menu">Bem-Vindo</span>
+                    <span class="usr-name">Ricardo</span>
+                </div> <!-- Nome do Usuário -->
+                
+                <ul>
+                    <li class="menu-items">
+                        <a href="principal.html">
+                           <span class="list-icon"><i class="fas fa-tachometer-alt"></i></span> 
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </li>                    
+                    <li class="menu-items">
+                        <a href="#">
+                            <span class="list-icon"><i class="fas fa-users"></i></span>
+                            <span class="menu-text">Clientes</span>
+                        </a>
+                    </li>
+                    <li class="menu-items">
+                        <a href="#">
+                            <span class="list-icon"><i class="fas fa-bullhorn"></i></span>
+                            <span class="menu-text">Campanhas</span></a>
+                        </li>
+                </ul>
             <!-- Logout no final do menu -->
-            <ul class="menu-logout">
-                <li><a href="#"><i class="fas fa-user"></i><span class="menu-text">Usuário</span></a></li>
-                <li><a href="#"><i class="fas fa-cog"></i><span class="menu-text">Configurações</span></a></li>
-                <li><a href="index.html" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span class="menu-text">Logout</span></a></li>
-            </ul>
-        </div>
+                <ul class="menu-logout">
+                    <li class="menu-items">
+                        <a href="./index.html">
+                            <span class="list-icon"><i class="fas fa-user"></i></span>
+                            <span class="menu-text">Usuário</span>
+                        </a>
+                    </li>
+                    <li class="menu-items">
+                        <a href="#">
+                            <span class="list-icon"><i class="fas fa-cog"></i></span>
+                            <span class="menu-text">Configurações</span>
+                        </a>
+                    </li>
+                    <li class="menu-items">
+                        <a href="./menu.html" onclick="logout()">
+                            <span class="list-icon"><i class="fas fa-sign-out-alt"></i></span>
+                            <span class="menu-text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
         <!-- Conteúdo Principal -->
         <div class="conteudo-principal">
-            <h1>Ranking - Supermercado Silva</h1>
-            <div class="ranking-details">
-                <h2>Detalhes do Ranking</h2>
-                <p>Aqui estão os detalhes do sistema de gamificação.</p>
-                <div class="podio">
-                    <div class="premio primeiro">
-                        <i class="fas fa-crown crown-gold"></i> <!-- Coroa de Ouro -->
-                        1º Lugar<br><span>Cliente A</span>
+            <h1>🏆 Ranking - Academia Silva</h1>
+            <div class="ranking">
+                <!-- 1º Lugar -->
+                <div class="rank-item primeiro">
+                    <div class="position">1º</div>
+                    <div class="details">
+                        <span class="crown">👑</span>
+                        <span class="name">João Atleta</span>
                     </div>
-                    <div class="premio segundo">
-                        <i class="fas fa-crown crown-silver"></i> <!-- Coroa Prata -->
-                        2º Lugar<br><span>Cliente B</span>
+                </div>
+                <!-- 2º Lugar -->
+                <div class="rank-item segundo">
+                    <div class="position">2º</div>
+                    <div class="details">
+                        <span class="crown">👑</span>
+                        <span class="name">Maria Fitness</span>
                     </div>
-                    <div class="premio terceiro">
-                        <i class="fas fa-crown crown-bronze"></i> <!-- Coroa Bronze -->
-                        3º Lugar<br><span>Cliente C</span>
+                </div>
+                <!-- 3º Lugar -->
+                <div class="rank-item terceiro">
+                    <div class="position">3º</div>
+                    <div class="details">
+                        <span class="crown">👑</span>
+                        <span class="name">Carlos Esforçado</span>
+                    </div>
+                </div>
+                <!-- 4º a 10º Lugar -->
+                <div class="rank-item">
+                    <div class="position">4º</div>
+                    <div class="details">
+                        <span class="name">Ana Corredora</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <div class="position">5º</div>
+                    <div class="details">
+                        <span class="name">Luiz Determinado</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <div class="position">6º</div>
+                    <div class="details">
+                        <span class="name">Cláudia Resiliente</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <div class="position">7º</div>
+                    <div class="details">
+                        <span class="name">Pedro Constante</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <div class="position">8º</div>
+                    <div class="details">
+                        <span class="name">Juliana Forte</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <div class="position">9º</div>
+                    <div class="details">
+                        <span class="name">Fernando Ágil</span>
+                    </div>
+                </div>
+                <div class="rank-item">
+                    <div class="position">10º</div>
+                    <div class="details">
+                        <span class="name">Gabriela Rápida</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 </html>

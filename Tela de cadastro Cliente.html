@@ -1,0 +1,257 @@
+HTML:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="./Styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo-container">
+                <img src="./img/Imagem do WhatsApp de 2024-10-08 à(s) 14.28.56_74a47912.jpg" alt="Logo Temporária" class="logo">
+            </div>
+
+            <h2>Cadastrar Cliente</h2>
+
+            <form id="form-cliente">
+                <div class="input-container">
+                    <label for="nome">Nome do Cliente</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="telefone" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" required>
+                </div>
+
+                <button type="submit" class="btn">Cadastrar Cliente</button>
+
+                <div id="mensagem-erro" class="error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- CSS:
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+body {
+    background-image: url('./img/20220513_hortifruti_materia.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    backdrop-filter: blur(5px);
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 20px;
+}
+
+.card {
+    width: 100%;
+    text-align: center;
+    color: #333;
+}
+
+.logo-container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #FF7300;
+    font-size: 24px;
+}
+
+.input-container {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #FF7300;
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #FF7300;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.btn {
+    background-color: #FF7300;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FF5B00;
+}
+
+.error-message, .success-message {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: green;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+}
+
+
+JAVASCRIPT:
+
+// Máscaras de entrada usando jQuery Mask
+$(document).ready(function() {
+    $('#cpf').mask('000.000.000-00', { reverse: true });
+    $('#telefone').mask('(00) 00000-0000');
+});
+
+document.getElementById("form-cliente").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevenir o comportamento padrão de envio do formulário
+    
+    const cpf = document.getElementById('cpf').value;
+    const telefone = document.getElementById('telefone').value;
+    const email = document.getElementById('email').value;
+    const erro = document.getElementById('mensagem-erro');
+
+    // Validar CPF
+    if (!validarCPF(cpf)) {
+        erro.textContent = 'CPF inválido.';
+        return;
+    }
+
+    // Validar telefone
+    if (telefone.length < 14) {
+        erro.textContent = 'Telefone inválido.';
+        return;
+    }
+
+    // Validar e-mail
+    if (!validarEmail(email)) {
+        erro.textContent = 'E-mail inválido.';
+        return;
+    }
+
+    // Se tudo estiver correto, mostrar mensagem de sucesso
+    erro.textContent = ''; // Limpar a mensagem de erro anterior
+    Swal.fire({
+        title: 'Cadastro realizado com sucesso!',
+        text: 'O cliente foi cadastrado.',
+        icon: 'success',
+        confirmButtonText: 'Ok',
+        customClass: {
+            confirmButton: 'btn',
+        },
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        },
+        timer: 5000,
+        timerProgressBar: true
+    });
+});
+
+// Função para validar o CPF
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, '');
+    if (cpf.length != 11) return false;
+    // Adicionar uma validação completa de CPF aqui (opcional)
+    return true;
+}
+
+// Função para validar o e-mail
+function validarEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+} -->
